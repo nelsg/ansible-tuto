@@ -2,7 +2,7 @@ Ansible tutorial
 ================
 
 This tutorial presents ansible step-by-step. You'll need to have a (virtual or
-physical) machine to act as an ansible node. A vagrant environment is provided for 
+physical) machine to act as an ansible node. A vagrant environment is provided for
 going through this tutorial.
 
 Ansible is a configuration management software that let's you control and
@@ -23,8 +23,8 @@ configuration too!), and most of the time they are.
 
 # Prerequisites for Ansible
 
-You need the following python modules on your machine (the machine you run ansible 
-on) 
+You need the following python modules on your machine (the machine you run ansible
+on)
 - python-yaml
 - python-jinja2
 
@@ -70,17 +70,26 @@ We'll assume you're using the deb packages in the rest of this tutorial.
 # Cloning the tutorial
 
 ```bash
-git clone https://github.com/leucos/ansible-tuto.git
+git clone https://github.com/nelsg/ansible-tuto.git
 cd ansible-tuto
 ```
 
 # Using Vagrant with the tutorial
 
-It's highly recommended to use Vagrant to follow this tutorial. If you don't have 
+It's highly recommended to use Vagrant to follow this tutorial. If you don't have
 it already, setting up should be quite easy and is described in [step-00/README.md](https://github.com/leucos/ansible-tuto/tree/master/step-00/README.md).
 
 If you wish to proceed without Vagrant (not recommended!), go straight to
 [step-01/README.md](https://github.com/leucos/ansible-tuto/tree/master/step-01).
+
+# Using Docker with the tutorial
+
+Minimum Docker version: 1.10.1
+
+* Build and launch environment with `env_up.sh`, any previous environment is destroyed
+* Destroy environment with `env_down.sh`
+* Start a stopped environment with `env_start.sh`
+* Stop a running environment with `env_stop.sh`
 
 ## Contents
 
@@ -172,4 +181,3 @@ For typos, grammar, etc... please send a PR for the master branch
 directly.
 
 Thank you!
-
