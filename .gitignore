@@ -1,8 +1,8 @@
 .tags
 .vagrant
+.DS_Store
 test/step-*.log
+*.retry
 
 _book/
 node_modules/
-
-

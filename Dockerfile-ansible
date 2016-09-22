@@ -20,17 +20,17 @@ RUN echo "===> Adding Ansible's prerequisites..."   && \
                 python-pip python-dev python-yaml      \
                 libxml2-dev libxslt1-dev zlib1g-dev    \
                 git                                 && \
-    pip install --upgrade pyyaml jinja2 pycrypto    && \
-    \
-    \
-    echo "===> Downloading Ansible's source tree..."            && \
-    git clone git://github.com/ansible/ansible.git --recursive  && \
-    cd ansible                            && \
-    git checkout v2.1.1.0-1               && \
-    cd ..                                 && \
-    \
-    \
-    echo "===> Compiling Ansible..."      && \
+    pip install --upgrade pyyaml jinja2 pycrypto
+
+RUN echo "===> Downloading Ansible's source tree..." && \
+    git clone git://github.com/ansible/ansible.git --recursive
+
+RUN cd ansible                            && \
+    git checkout v2.1.0.0-1               && \
+    git submodule update                  && \
+    cd ..
+
+RUN echo "===> Compiling Ansible..."      && \
     cd ansible                            && \
     bash -c 'source ./hacking/env-setup'  && \
     \
