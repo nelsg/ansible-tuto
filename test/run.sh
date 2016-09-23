@@ -6,7 +6,7 @@
 #
 # The script runs the whole suite when called without arguments:
 #
-#   $ test/run.sh 
+#   $ test/run.sh
 #   Checking playbook apache for step-04         success
 #   Checking playbook apache for step-05         success
 #   ...
@@ -16,7 +16,7 @@
 #
 # The script will run a specific step if called with an argument :
 #
-#   $ test/run.sh step-12/site.yml 
+#   $ test/run.sh step-12/site.yml
 #   Checking playbook site for step-12           success
 #   Ran 1 : 1 ok, 0 failures
 #   $
@@ -44,7 +44,7 @@ default=$(grep -A1 ^default test/expectations 2> /dev/null | tail -1 | sed -e 's
 list=$1
 
 if [[ -z $1 ]]; then
-  list=$(find . -maxdepth 2 -name *.yml | grep -v "step-00" | sort)
+  list=$(find . -maxdepth 2 -name '*.yml' | grep -v "step-00" | grep -v "docker-compose" | sort)
 fi
 
 for pbook in $list; do
@@ -69,7 +69,7 @@ for pbook in $list; do
   if [[ "x$expect" == "x" ]]; then
     expect=$default
   fi
-    
+
   echo -e "TEST expected : ($expect)" >> $log
   echo -e "TEST got      : ($got)" >> $log
 
@@ -87,4 +87,3 @@ for pbook in $list; do
 done
 
 echo -e "Ran $((success + errors)) : $GREEN$success ok$NORMAL, $RED$errors failures$NORMAL"
-

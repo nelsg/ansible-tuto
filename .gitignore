@@ -1,7 +1,7 @@
 .tags
 .vagrant
 .DS_Store
-test/step-*.log
+test/*.log
 *.retry
 
 _book/

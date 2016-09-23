@@ -23,38 +23,33 @@ RUN echo "===> Adding Ansible's prerequisites..."   && \
     pip install --upgrade pyyaml jinja2 pycrypto
 
 RUN echo "===> Downloading Ansible's source tree..." && \
-    git clone git://github.com/ansible/ansible.git --recursive
-
-RUN cd ansible                            && \
+    git clone git://github.com/ansible/ansible.git --recursive && \
+    cd ansible                            && \
     git checkout v2.1.0.0-1               && \
     git submodule update                  && \
     cd ..
 
 RUN echo "===> Compiling Ansible..."      && \
     cd ansible                            && \
-    bash -c 'source ./hacking/env-setup'  && \
-    \
-    \
-    echo "===> Moving useful Ansible stuff to /opt/ansible ..."  && \
+    bash -c 'source ./hacking/env-setup'
+
+RUN echo "===> Moving useful Ansible stuff to /opt/ansible ..."  && \
     mkdir -p /opt/ansible                && \
     mv /ansible/bin   /opt/ansible/bin   && \
     mv /ansible/lib   /opt/ansible/lib   && \
     mv /ansible/docs  /opt/ansible/docs  && \
-    rm -rf /ansible                      && \
-    \
-    \
-    echo "===> Installing handy tools (not absolutely required)..."  && \
-    apt-get install -y sshpass openssh-client  && \
-    \
-    \
-    echo "===> Clean up..."                                         && \
+    rm -rf /ansible
+
+RUN echo "===> Installing handy tools (not absolutely required)..."  && \
+    apt-get install -y sshpass openssh-client
+
+RUN echo "===> Clean up..."                                         && \
     apt-get remove -y --auto-remove \
             build-essential python-pip python-dev git               && \
     apt-get clean                                                   && \
-    rm -rf /var/lib/apt/lists/*                                     && \
-    \
-    \
-    echo "===> Adding hosts for convenience..."  && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN echo "===> Adding hosts for convenience..."  && \
     mkdir -p /etc/ansible                        && \
     echo 'localhost' > /etc/ansible/hosts
 
