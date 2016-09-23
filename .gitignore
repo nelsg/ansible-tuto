@@ -1,6 +1,7 @@
 .tags
 .vagrant
 .DS_Store
+.cache
 test/*.log
 *.retry
 
