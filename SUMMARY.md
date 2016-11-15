@@ -29,6 +29,7 @@ Four hosts: _ansible_, _host0_, _host1_ and _host2_
   * ansible-playbook -i step-06/hosts -l host1.example.org step-06/apache.yml
 * [07 Playbook conditionals](step-07/README.md)
   * ansible-playbook -i step-07/hosts -l host1.example.org step-07/apache.yml
+  * ansible -i step-07/hosts -m service -a 'name=apache2 state=restarted' host1.example.org
 * [08 Git module](step-08/README.md)
   * ansible-playbook -i step-08/hosts -l host1.example.org step-08/apache.yml
 * [09 Extending to several hosts](step-09/README.md)
