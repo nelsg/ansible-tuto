@@ -17,11 +17,6 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
-# SSH register same key in order to facilitate connection
-ADD ./ssh/id_rsa /root/.ssh/id_rsa
-ADD ./ssh/id_rsa.pub /root/.ssh/id_rsa.pub
-RUN cat /root/.ssh/id_rsa.pub  >> /root/.ssh/authorized_keys
-
 RUN echo "root:ansible" | chpasswd
 
 EXPOSE 22

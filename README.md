@@ -101,7 +101,7 @@ Minimum Docker version: 1.10.1
 
 Just in case you want to skip to a specific step, here is a topic table of contents.
 
-- [00. Vagrant Setup](https://github.com/leucos/ansible-tuto/tree/master/step-00)
+- [00. Docker Setup](https://github.com/leucos/ansible-tuto/tree/master/step-00)
 - [01. Basic inventory](https://github.com/leucos/ansible-tuto/tree/master/step-01)
 - [02. First modules and facts](https://github.com/leucos/ansible-tuto/tree/master/step-02)
 - [03. Groups and variables](https://github.com/leucos/ansible-tuto/tree/master/step-03)

@@ -18,6 +18,7 @@ RUN echo "===> Adding Ansible's prerequisites..."   && \
         apt-get install --no-install-recommends -y -q  \
                 build-essential                        \
                 python-pip python-dev python-yaml      \
+                python-paramiko                        \
                 libxml2-dev libxslt1-dev zlib1g-dev    \
                 git                                 && \
     pip install --upgrade pyyaml jinja2 pycrypto
