@@ -9,11 +9,11 @@ Four hosts: _ansible_, _host0_, _host1_ and _host2_
 * [01 Basic inventory](step-01/README.md): Ping
   * ansible -m ping all -i step-01/hosts
   * ansible -m ping host0.example.org -i step-01/hosts
-  * ansible -m ping *example* -i step-01/hosts
-  * ansible -m ping host[1-2]* -i step-01/hosts
+  * ansible -m ping \*example\* -i step-01/hosts
+  * ansible -m ping host[1-2]\* -i step-01/hosts
   * ansible -m ping all -i step-01/hosts -l host0.example.org
-  * ansible -m ping all -i step-01/hosts -l *example*
-  * ansible -m ping all -i step-01/hosts -l host[1-2]*
+  * ansible -m ping all -i step-01/hosts -l \*example\*
+  * ansible -m ping all -i step-01/hosts -l host[1-2]\*
 * [02 First modules and facts](step-02/README.md)
   * ansible -i step-02/hosts -m shell -a 'uname -a' host0.example.org
   * ansible -i step-02/hosts -m copy -a 'src=/etc/modules dest=/tmp/' host0.example.org
