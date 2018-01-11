@@ -26,7 +26,8 @@ RUN echo "===> Adding Ansible's prerequisites..."   && \
 RUN echo "===> Downloading Ansible's source tree..." && \
     git clone git://github.com/ansible/ansible.git --recursive && \
     cd ansible                            && \
-    git checkout v2.1.0.0-1               && \
+    git checkout v2.3.3.0-1               && \
+    git submodule init                    && \
     git submodule update                  && \
     cd ..
 
