@@ -18,7 +18,8 @@ RUN echo "===> Install ansible..."     && \
     DEBIAN_FRONTEND=noninteractive                       \
         apt install --no-install-recommends -y -q        \
                 build-essential python3-pip              \
-                sshpass openssh-client                && \
+                sshpass openssh-client                   \
+                python3-paramiko                      && \
     pip install ansible==2.10.7                       && \
     apt clean                                         && \
     rm -rf /var/lib/apt/lists/*

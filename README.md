@@ -17,10 +17,6 @@ Minimum Docker version: 1.10.1
 ```bash
 cd ansible-tuto
 ./env_up.sh
-
-ansible> ssh-copy-id host0
-ansible> ssh-copy-id host1
-ansible> ssh-copy-id host2
 # password is : 'ansible'
 ```
 
