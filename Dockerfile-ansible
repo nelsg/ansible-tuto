@@ -27,6 +27,8 @@ RUN echo "===> Adding hosts for convenience..."  && \
     mkdir -p /etc/ansible                        && \
     echo 'localhost' > /etc/ansible/hosts
 
+RUN ssh-keygen -q -t rsa -N '' -f /root/.ssh/id_rsa
+
 ENV PATH        /opt/ansible/bin:$PATH
 ENV PYTHONPATH  /opt/ansible/lib:$PYTHONPATH
 ENV MANPATH     /opt/ansible/docs/man:$MANPATH
