@@ -25,11 +25,10 @@ configuration too!), and most of the time they are.
 
 You need the following python modules on your machine (the machine you run ansible
 on)
-- python-yaml
-- python-jinja2
+- python3-pip
 
 On Debian/Ubuntu run:
-``sudo apt-get install python-yaml python-jinja2 python-paramiko python-crypto``
+`sudo apt-get install python3-pip`
 
 We're also assuming you have a keypair in your ~/.ssh directory.
 

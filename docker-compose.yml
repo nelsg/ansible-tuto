@@ -1,10 +1,7 @@
 version: '2'
 services:
   ansible:
-    build:
-      context: .
-      dockerfile: Dockerfile-ansible
-    image: ubuntu/ansible:14.04
+    image: ubuntu/ansible:20.04
     container_name: ansible
     hostname: ansible
     command: /usr/sbin/sshd -D
@@ -19,24 +16,21 @@ services:
       - host1
       - host2
   host0:
-    build: .
-    image: ubuntu/sshd:14.04
+    image: ubuntu/sshd:20.04
     container_name: host0
     hostname: host0
     networks:
       ansible_tuto:
         ipv4_address: 172.16.238.10
   host1:
-    build: .
-    image: ubuntu/sshd:14.04
+    image: ubuntu/sshd:20.04
     container_name: host1
     hostname: host1
     networks:
       ansible_tuto:
         ipv4_address: 172.16.238.11
   host2:
-    build: .
-    image: ubuntu/sshd:14.04
+    image: ubuntu/sshd:20.04
     container_name: host2
     hostname: host2
     networks:
