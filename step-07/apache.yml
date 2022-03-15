@@ -1,3 +1,4 @@
+#TODO: Pas idempotent
 - hosts: web
   tasks:
     - name: Installs apache web server
