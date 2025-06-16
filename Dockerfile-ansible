@@ -7,26 +7,30 @@
 # VERSION               0.0.1
 # From: https://hub.docker.com/r/williamyeh/ansible/~/dockerfile/
 
-FROM ubuntu/sshd:20.04
+FROM ubuntu/sshd:24.04
 
 LABEL org.opencontainers.image.authors="Nelson Goncalves <nelson.goncalves.fr@gmail.com>"
 
 
-RUN echo "===> Install ansible..."     && \
-    apt update -y                                     && \
-    apt upgrade -y                                    && \
-    DEBIAN_FRONTEND=noninteractive                       \
-        apt install --no-install-recommends -y -q        \
-                build-essential python3-pip              \
-                sshpass openssh-client                   \
-                python3-paramiko                      && \
-    pip install ansible==2.10.7                       && \
-    apt clean                                         && \
+RUN echo "===> Install python3 and essentials..."       && \
+    apt update -y                                       && \
+    apt upgrade -y                                      && \
+    DEBIAN_FRONTEND=noninteractive                         \
+        apt install --no-install-recommends -y -q          \
+                build-essential python3-pip pipx           \
+                sshpass openssh-client                     \
+                python3-paramiko                        && \
+    apt clean                                           && \
     rm -rf /var/lib/apt/lists/*
+            
+RUN echo "===> Install ansible..."                      && \
+    pipx install ansible-core==2.16.3 ansible==9.2.0 ansible-lint==25.1.3 ansible-navigator==25.4.1
 
-RUN echo "===> Adding hosts for convenience..."  && \
-    mkdir -p /etc/ansible                        && \
+RUN echo "===> Adding hosts for convenience..."         && \
+    mkdir -p /etc/ansible                               && \
     echo 'localhost' > /etc/ansible/hosts
+
+RUN pipx ensurepath
 
 RUN ssh-keygen -q -t rsa -N '' -f /root/.ssh/id_rsa
 

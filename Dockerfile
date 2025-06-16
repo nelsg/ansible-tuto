@@ -3,7 +3,7 @@
 # VERSION               0.0.1
 # From: https://docs.docker.com/engine/examples/running_ssh_service/
 
-FROM ubuntu:20.04
+FROM ubuntu:24.04
 
 LABEL org.opencontainers.image.authors="Nelson Goncalves <nelson.goncalves.fr@gmail.com>"
 

@@ -4,6 +4,8 @@
 .cache
 test/*.log
 *.retry
+.venv
+.ansible-retry
 
 _book/
 node_modules/
