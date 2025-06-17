@@ -9,7 +9,7 @@ LABEL org.opencontainers.image.authors="Nelson Goncalves <nelson.goncalves.fr@gm
 
 RUN apt update && \
     apt upgrade -y && \
-    apt install -y openssh-server python3-apt
+    apt install -y openssh-server python3-apt less
 RUN mkdir /var/run/sshd
 RUN echo 'root:screencast' | chpasswd
 RUN sed -i 's/.*PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config

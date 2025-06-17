@@ -30,11 +30,16 @@ Four hosts: _ansible_, _host0_, _host1_ and _host2_
   * ansible-playbook -i step-04/hosts step-04/apache.yml
 * 05 Playbooks, pushing files on nodes
   * ansible-playbook -i step-05/hosts step-05/apache.yml
+* 05.01 Listen
+  * ansible-playbook -i step-05.01/hosts step-05.01/apache.yml
 * 06 Playbooks and failures
   * ansible-playbook -i step-06/hosts step-06/apache.yml
 * 07 Playbook conditionals
   * ansible-playbook -i step-07/hosts step-07/apache.yml
   * ansible -i step-07/hosts -m service -a 'name=apache2 state=restarted' host1
+* 07.01 Playbook blocks
+  * ansible-playbook -i step-07.01/hosts step-07.01/apache.yml
+  * ansible -i step-07.01/hosts -m service -a 'name=apache2 state=restarted' host1
 * 08 Git module
   * ansible-playbook -i step-08/hosts step-08/apache.yml
 * 09 Extending to several hosts
